@@ -1,0 +1,22 @@
+mul
+
+LXI H,4200H;Load the HL reg pair with theaddress 4200H
+MOV B,M;Move the Multiplicand to the accumulator
+MVI A,00;Clear A reg
+MVI D,00;Clear D reg
+INX H;Increment the HL reg pair
+MOV C,M; Move the Multiplier to C reg
+ADD B;Add the content of A reg with D
+reg. content.
+JNC LOOP;  If CY=0, program control jumpsto label LOOP..
+INR D;Increment D reg..
+DCR C;Decrement C reg..
+JNZ LOOP2;Jump to LOOP2 if c is not zero
+STA 4202;Store accumulator A (sum) in to
+memory location 4202H
+MOV A,D ;Store the most significant byteof
+the product to the accumulator
+location pointed by HL pair.
+STA 4203;Store the carry count into
+memory location 4203H
+HLT

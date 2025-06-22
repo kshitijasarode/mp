@@ -1,0 +1,15 @@
+divide
+LXI H,4500H;Load the HL reg pair with the address 4500H.
+MVI C,00H ;Clear C reg.
+MOV A,M;Move the Dividend to the accumulator.
+INX H;Increment the HL reg pair
+MOV B,M ; Move the Divisor to B reg.
+CMP B;Compare B reg.
+JC SKIP;If carry=1, jump to label SKIP
+SUB B;Subtract the divisor from dividend.
+INR C;Increment C reg.
+JMP REPEAT;Jump to label REPEAT.
+STA 4503H;Store the remainder.
+MOV A,C;Move the Quotient to Accumulator.
+STA 4502H;Store the Quotient.
+HLT  Stop the Process

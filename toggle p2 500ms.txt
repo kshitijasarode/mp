@@ -1,0 +1,23 @@
+#include <reg51.h>
+void T1M1Delay (void);
+void main (void)
+ {
+ unsigned char x ;
+     P2=0x55;
+     while(1)
+     {
+     P2=~P2;
+     for(x=0; x<20;x++)
+      T1M1Delay();
+          }
+      }
+void T1M1Delay (void)
+{
+TMOD=0x10; //Timer 1, delay 1 (16 bit)
+TL1=0xFE; //Load TL1
+TH1=0xA5; //Load TH1
+TR1=1; // Turn on T1
+while(TF1==0); // Wait for TF1 to roll over
+TR1=0; // Turn off T1
+TF1=0; // Clear TF1
+}

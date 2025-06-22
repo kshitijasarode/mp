@@ -1,0 +1,14 @@
+ORG 0000H
+MOV R0,#20H ;Initialize source pointer R0 to 20H
+MOV R1, #40H ;Initialize destination pointer R1 t
+40H
+MOV R7, #05H;Initialize byte counter
+MOV A, @R0;Move the contents of first source
+location to Accumulator
+MOV @R1,A;Move the contents of Accumulator
+to first destination location
+INC R0;Increment the contents of R0
+INC R1;Increment the contents of R1
+DJNZ R7, UP; Decrement counter by one Is it
+zero? No ,jump to UP
+END

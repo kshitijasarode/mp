@@ -1,0 +1,58 @@
+add
+ORG 4100;Start the program 4100H Memory Location
+MOV A, #01H;Moves data 1 to register A
+ADD A, #02H;Add content of A and data 2 and store in A
+MOV DPTR,#4500;Moves data 4500 to DPTR
+MOVX @DPTR,A;Moves control of A to location pointed DTPR
+END
+
+sub
+ORG 4100;Start the program 4100H Memory Location
+MOV A, #05H;Moves data 1 to register A
+ADD A, #02H;Subtract data 2 from
+content of A and store
+result in A
+MOV DPTR,#4500;Moves data 4500 to DPTR
+MOVX @DPTR,A;Moves control of A to location pointed DTPR
+END
+
+
+mul
+ORG 4100;
+MOV A,#03H;
+MOV B,#02H;
+MUL AB;
+MOV DPTR, # 4500;
+MOVX @DPTR,A;Move A t ext RAM
+INC DPTR;
+MOV A,B;
+MOVX @DPTR,A;Same the ext RAM
+END
+
+div
+ORG 4100;
+MOV A,#04H;
+MOV B,#02H;
+DIV AB;
+MOV DPTR, # 4500;
+MOVX @DPTR,A;Move A t ext RAM
+INC DPTR;
+MOV A,B;
+MOVX @DPTR,A;Same the ext RAM
+END
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

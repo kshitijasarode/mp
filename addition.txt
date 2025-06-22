@@ -1,0 +1,18 @@
+Addition hexa
+LXI H, 2009;Point 1st no.
+MOV A, M;Load the acc.
+INX H;Adv Pointer
+ADD M;ADD 2 no
+INX H ; Adv Pointer
+MOV M, A ; Store Result
+HLT
+
+decimal 
+LXI H, 2009;Point 1st no.
+MOV A, M;Load the acc.
+INX H;Adv Pointer
+ADD M;ADD 2
+DAA ; Adjust the decimal
+INX H ; Adv Pointer
+MOV M, A ; Store Result
+HLT

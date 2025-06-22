@@ -1,0 +1,25 @@
+#include <reg51.h>
+void T0M1Delay(void);
+sbit mybit=P1^5;
+void main(void)
+{
+       while(1)
+               {
+                mybit=~mybit; //toggle P1.5
+                T0M1Delay(); //Timer 0,mode 1(16-bit)
+}
+}
+
+//(A) Tested for AT89C51, XTAL=11.0592MHz ,
+using the Proview 32 compiler
+void T0M1Delay(void)
+{
+TMOD=0x01; //Timer 0, mode 1(16-bit)
+TL0=0xFD; //load TL0
+
+        TH0=0x4B; //LOAD THO
+        TR0=1; //Turn on T0
+        while(TF0==0); //Wait for TF0 to roll over
+        TR0=0; //turn off T0
+        TF0=0; //clear TF0
+}
